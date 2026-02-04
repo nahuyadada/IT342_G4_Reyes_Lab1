@@ -25,6 +25,10 @@ docs/             Project documentation
 
 ## Setup
 
+### Quick Start
+1. Start MySQL in XAMPP Control Panel
+2. Double-click `start-app.bat` to launch both backend and frontend
+
 ### Database
 1. Start MySQL in XAMPP Control Panel
 2. Database `it342_auth` is auto-created on first run
