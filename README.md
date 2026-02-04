@@ -1,37 +1,65 @@
-# IT342 G4 Reyes Lab 1
+# IT342 G4 Reyes Lab 1 — Authentication Module
 
 ## Overview
-This repository contains the group project for IT342 Lab 1. It is organized into separate applications for the backend, web, and mobile, plus documentation.
+A full-stack authentication system with user registration, login/logout, JWT-based session management, and a protected dashboard.
+
+## Tech Stack
+- **Frontend:** React.js (SPA), Axios, React Router
+- **Backend:** Spring Boot 4, Spring Security, Spring Data JPA
+- **Database:** MySQL (XAMPP)
+- **Auth:** BCrypt password hashing, JWT tokens
 
 ## Repository Structure
-- backend/ — server-side source code
-- web/ — web client source code
-- mobile/ — mobile client source code
-- docs/ — project documentation
+```
+backend/          Spring Boot REST API
+web/mini-app/     React frontend
+mobile/           (reserved for mobile client)
+docs/             Project documentation
+```
 
 ## Prerequisites
-- Node.js (for the web app)
-- Java 17 (for Spring Boot backend)
-- Gradle or Maven (depending on backend setup)
-- MySQL or PostgreSQL (database)
+- Node.js 18+
+- Java 17 (JDK)
+- MySQL 8+ (XAMPP recommended)
+- Maven (included via wrapper)
 
-## Setup (to be updated)
-Each subproject should include its own README with specific setup steps. Common steps typically look like:
+## Setup
 
-1. Install dependencies
-2. Configure environment variables
-3. Run the development server/app
+### Database
+1. Start MySQL in XAMPP Control Panel
+2. Database `it342_auth` is auto-created on first run
 
 ### Backend (Spring Boot)
-- Suggested stack: Spring Web, Spring Data JPA, MySQL Driver
-- Configure database connection in application.properties or application.yml
-- Expose auth endpoints under /api/auth (register, login, profile, logout)
+```bash
+cd backend
+# Set JAVA_HOME to JDK 17 if needed
+.\mvnw spring-boot:run
+```
+Runs on http://localhost:8080
 
-## Usage (to be updated)
-Describe how to run the backend, web, and mobile apps and how they interact.
+### Frontend (React)
+```bash
+cd web/mini-app
+npm install
+npm start
+```
+Runs on http://localhost:3000
 
-## Documentation
-Project documentation is stored in docs/.
+## API Endpoints
+| Method | Endpoint            | Description              | Auth     |
+|--------|---------------------|--------------------------|----------|
+| POST   | /api/auth/register  | Register new user        | Public   |
+| POST   | /api/auth/login     | Login, returns JWT       | Public   |
+| GET    | /api/auth/profile   | Get user profile         | Required |
+| POST   | /api/auth/logout    | Logout (client clears)   | Required |
+
+## Features
+- User registration with validation
+- Secure login with BCrypt password verification
+- JWT token generation and validation
+- Protected routes (frontend and backend)
+- CORS configured for localhost:3000
 
 ## Contributors
-G4 — Reyes
+**Group 4 — Reyes**
+
