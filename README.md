@@ -65,5 +65,5 @@ Runs on http://localhost:3000
 - CORS configured for localhost:3000
 
 ## Contributors
-**Group 4 — Reyes**
+**G4 — Reyes**
 
