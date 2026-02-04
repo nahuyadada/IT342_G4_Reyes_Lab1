@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/auth")
 public class AuthController {
 
     private final AuthService authService;
@@ -25,7 +24,7 @@ public class AuthController {
         this.authService = authService;
     }
 
-    @PostMapping("/register")
+    @PostMapping("/api/auth/register")
     public ResponseEntity<?> register(@Valid @RequestBody RegisterRequest request) {
         try {
             AuthResponse response = authService.register(request);
@@ -35,7 +34,7 @@ public class AuthController {
         }
     }
 
-    @PostMapping("/login")
+    @PostMapping("/api/auth/login")
     public ResponseEntity<?> login(@Valid @RequestBody LoginRequest request) {
         try {
             AuthResponse response = authService.login(request);
@@ -45,7 +44,7 @@ public class AuthController {
         }
     }
 
-    @GetMapping("/profile")
+    @GetMapping("/api/user/profile")
     public ResponseEntity<?> getProfile() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null || !(authentication.getPrincipal() instanceof User)) {
@@ -57,7 +56,7 @@ public class AuthController {
         return ResponseEntity.ok(profile);
     }
 
-    @PostMapping("/logout")
+    @PostMapping("/api/auth/logout")
     public ResponseEntity<?> logout() {
         // JWT is stateless, so logout is handled client-side by clearing the token
         return ResponseEntity.ok(Map.of("message", "Logout successful"));

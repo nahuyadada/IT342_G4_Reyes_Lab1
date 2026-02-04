@@ -50,7 +50,7 @@ Runs on http://localhost:3000
 |--------|---------------------|--------------------------|----------|
 | POST   | /api/auth/register  | Register new user        | Public   |
 | POST   | /api/auth/login     | Login, returns JWT       | Public   |
-| GET    | /api/auth/profile   | Get user profile         | Required |
+| GET    | /api/user/profile   | Get user profile         | Required |
 | POST   | /api/auth/logout    | Logout (client clears)   | Required |
 
 ## Features
