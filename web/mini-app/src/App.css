@@ -4,6 +4,83 @@
   color: #1a1f36;
 }
 
+/* ---------- Sidebar Layout ---------- */
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 240px;
+  background: #1e1b4b;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.sidebar .brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.sidebar .brand h1 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #fff;
+}
+
+.sidebar .brand-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #6366f1 0%, #a78bfa 100%);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.35);
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.nav-item {
+  display: block;
+  padding: 12px 16px;
+  border-radius: 12px;
+  color: #c4b5fd;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.nav-item.active {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 240px;
+  padding: 40px 48px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* ---------- Top bar (guest) ---------- */
 .topbar {
   display: flex;
   align-items: center;
@@ -42,10 +119,17 @@
   align-items: center;
 }
 
-.nav a {
+.nav a,
+.nav button {
   color: #384160;
   text-decoration: none;
   font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.nav a:hover,
+.nav button:hover {
+  opacity: 0.7;
 }
 
 .nav .btn-link {
@@ -53,6 +137,10 @@
   border-radius: 999px;
   background: #ffffff;
   box-shadow: 0 10px 25px rgba(22, 29, 72, 0.12);
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 .container {
@@ -193,7 +281,42 @@
   font-weight: 500;
 }
 
+.btn-secondary {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 2px solid #e5e7eb;
+  background: transparent;
+  color: #6b7280;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+  background: #fef2f2;
+}
+
 @media (max-width: 720px) {
+  .sidebar {
+    width: 64px;
+    padding: 20px 8px;
+  }
+
+  .sidebar .brand h1,
+  .nav-item {
+    font-size: 0;
+  }
+
+  .main-content {
+    margin-left: 64px;
+    padding: 24px 16px;
+  }
+
   .topbar {
     flex-direction: column;
     align-items: flex-start;
