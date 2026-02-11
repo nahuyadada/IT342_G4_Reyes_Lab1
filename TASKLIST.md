@@ -14,6 +14,7 @@
 - [x] Create AuthController with endpoints:
   - [x] POST /api/auth/register
   - [x] POST /api/auth/login
+  - [x] GET /api/user/me
   - [x] GET /api/user/profile
   - [x] POST /api/auth/logout
 - [x] Add validation for DTOs (RegisterRequest, LoginRequest)
@@ -33,7 +34,7 @@
 - [x] Clean up unused boilerplate files
 
 ### Project Structure & Documentation
-- [x] Create proper folder structure (/backend, /web, /mobile, /docs)
+- [ ] Ensure proper folder structure exists (/backend, /web, /mobile, /docs)
 - [x] Write comprehensive README.md with:
   - [x] Project overview
   - [x] Tech stack
@@ -50,7 +51,7 @@
 ## 🔲 Pending Tasks
 
 ### Mobile App (Android Kotlin)
-- [ ] Create Android Kotlin project
+- [ ] Create `mobile/` folder and Android Kotlin project
 - [ ] Set up project structure and dependencies
 - [ ] Implement Register screen
 - [ ] Implement Login screen
@@ -63,7 +64,10 @@
 - [ ] Ensure UI matches web design
 
 ### Documentation (/docs folder)
-- [ ] Create FRS PDF document containing:
+- [ ] Create final FRS documents in `docs/`:
+  - [ ] FRS_FINAL.pdf
+  - [ ] FRS_FINAL.docx
+- [ ] Ensure final FRS contains:
   - [ ] ERD diagram
   - [ ] Use Case diagram
   - [ ] Activity diagram
@@ -80,7 +84,7 @@
     - [ ] Mobile: Logout functionality
 
 ### README.md Updates
-- [ ] Add detailed "Steps to run mobile app" section
+- [ ] Add detailed "Steps to run mobile app" section (Android Studio + emulator/physical device)
 - [ ] Add troubleshooting section
 - [ ] Verify all API endpoints are documented with examples
 

@@ -1,7 +1,9 @@
 # IT342 G4 Reyes Lab 1 — Authentication Module
 
 ## Overview
-A full-stack authentication system with user registration, login/logout, JWT-based session management, and a protected dashboard.
+Full-stack authentication mini app (Web + Mobile) backed by the same Spring Boot + MySQL API.
+
+Features: Register, Login, Protected Dashboard/Profile, Get current user (`/me`), Logout, and JWT-based session handling.
 
 ## Tech Stack
 - **Frontend:** React.js (SPA), Axios, React Router
@@ -49,13 +51,20 @@ npm start
 ```
 Runs on http://localhost:3000
 
+### Mobile (Android Kotlin)
+- Android Emulator base URL should be `http://10.0.2.2:8080`
+- Physical device base URL should be `http://<YOUR_PC_LAN_IP>:8080`
+
+Project files for the Android client live under `mobile/`.
+
 ## API Endpoints
-| Method | Endpoint            | Description              | Auth     |
-|--------|---------------------|--------------------------|----------|
-| POST   | /api/auth/register  | Register new user        | Public   |
-| POST   | /api/auth/login     | Login, returns JWT       | Public   |
-| GET    | /api/user/profile   | Get user profile         | Required |
-| POST   | /api/auth/logout    | Logout (client clears)   | Required |
+| Method | Endpoint            | Description                                  | Auth     |
+|--------|---------------------|----------------------------------------------|----------|
+| POST   | /api/auth/register  | Register new user                             | Public   |
+| POST   | /api/auth/login     | Login, returns JWT                            | Public   |
+| GET    | /api/user/me        | Get current user info (`/me`)                 | Required |
+| GET    | /api/user/profile   | Alias of `/api/user/me` (kept for compatibility) | Required |
+| POST   | /api/auth/logout    | Logout (JWT stateless; client clears token)   | Required |
 
 ## Features
 - User registration with validation
@@ -63,6 +72,10 @@ Runs on http://localhost:3000
 - JWT token generation and validation
 - Protected routes (frontend and backend)
 - CORS configured for localhost:3000
+
+## Notes (Auth)
+- Passwords are stored as BCrypt hashes (never plain text).
+- JWT is stateless: “logout” clears the token on the client.
 
 ## Contributors
 **G4 — Reyes**

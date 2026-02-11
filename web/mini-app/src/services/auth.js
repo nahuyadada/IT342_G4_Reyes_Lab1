@@ -42,6 +42,12 @@ export const logout = async () => {
 };
 
 export const getProfile = async () => {
-  const response = await api.get('/api/user/profile');
-  return response.data;
+  try {
+    const response = await api.get('/api/user/me');
+    return response.data;
+  } catch (error) {
+    // Backward-compatible fallback
+    const response = await api.get('/api/user/profile');
+    return response.data;
+  }
 };

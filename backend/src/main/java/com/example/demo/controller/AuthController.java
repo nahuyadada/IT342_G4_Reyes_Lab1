@@ -56,6 +56,11 @@ public class AuthController {
         return ResponseEntity.ok(profile);
     }
 
+    @GetMapping("/api/user/me")
+    public ResponseEntity<?> getMe() {
+        return getProfile();
+    }
+
     @PostMapping("/api/auth/logout")
     public ResponseEntity<?> logout() {
         // JWT is stateless, so logout is handled client-side by clearing the token
